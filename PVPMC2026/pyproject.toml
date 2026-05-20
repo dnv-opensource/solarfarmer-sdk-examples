@@ -1,0 +1,14 @@
+[project]
+name = "pvpmc-usa-2026-dnv-apis"
+version = "0.1.0"
+description = "Notebooks for the DNV Green Data Products API training session at PVPMC 2026."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "dnv-solarfarmer>=0.2.0",
+    "ipykernel>=7.2.0",
+    "matplotlib>=3.10.9",
+    "pandas>=3.0.2",
+    "pvlib>=0.15.1",
+    "solcast>=1.3.1",
+]
