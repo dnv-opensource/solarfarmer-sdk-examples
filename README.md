@@ -14,6 +14,18 @@ Each subfolder corresponds to a specific event or workshop. More are added over 
 | Folder | Event | Date |
 |--------|-------|------|
 | [`PVPMC2026/`](PVPMC2026/) | PVPMC USA Workshop, Albuquerque NM | May 2026 |
+| [`WebinarJune2026/`](Webinar%20June%202026/) | Webinar Digital bankability: Bankable yield modelling in your Python workflows  | June 2026 |
+
+---
+
+## Webinar June 2026
+
+One notebook from the **DNV Digital bankability: Bankable yield modelling in your Python workflows** (June 2026).
+Demonstrates **Workflow 2** of the SolarFarmer SDK for a portfolio of five US sites.
+
+| Notebook | Title | What it covers |
+|----------|-------|----------------|
+| [`01_multisite_workflow2.ipynb`](Webinar%20June%202026/01_multisite_workflow2.ipynb) | Multi-site yield assessment — Workflow 2 | Load 5 sites from CSV, fetch Solcast TMY in parallel, build `PVSystem` objects (Workflow 2), run parallel energy calculations, compare PR / specific yield / monthly profiles |
 
 ---
 
@@ -101,18 +113,22 @@ jupyter lab
 ```
 solarfarmer-sdk-examples/
 ├── README.md
-└── PVPMC2026/
-    ├── environment.yml
+├── PVPMC2026/
+│   ├── environment.yml
+│   ├── pyproject.toml
+│   ├── uv.lock
+│   ├── solar_resource_compass.py     # SRC API helper
+│   ├── 01_solcast.ipynb
+│   ├── 02_solar_resource_compass.ipynb
+│   ├── 03_solarfarmer.ipynb
+│   ├── 04_operational_SF3d.ipynb
+│   ├── 05_solcast_solarfarmer_multiyear.ipynb
+│   ├── equipment/                    # PAN / OND files for notebooks 03–05
+│   └── operational_usecase/          # SolarFarmer Workflow 1 API input files
+└── Webinar June 2026/
     ├── pyproject.toml
-    ├── uv.lock
-    ├── solar_resource_compass.py     # SRC API helper
-    ├── 01_solcast.ipynb
-    ├── 02_solar_resource_compass.ipynb
-    ├── 03_solarfarmer.ipynb
-    ├── 04_operational_SF3d.ipynb
-    ├── 05_solcast_solarfarmer_multiyear.ipynb
-    ├── equipment/                    # PAN / OND files for notebooks 03–05
-    └── operational_usecase/          # SolarFarmer Workflow 1 API input files
+    ├── sites.csv                     # 5-site portfolio definition
+    └── 01_multisite_workflow2.ipynb  # Multi-site Workflow 2 demo
 ```
 
 ---
