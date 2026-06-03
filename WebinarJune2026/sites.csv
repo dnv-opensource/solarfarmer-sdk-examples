@@ -1,0 +1,6 @@
+site_id,site_name,latitude,longitude,altitude,timezone,mounting,tilt,azimuth,gcr,dc_capacity_MW,ac_capacity_MW,grid_limit_MW,bifacial,inverter_type
+CA-01,Los Angeles Solar,34.05,-118.25,71,America/Los_Angeles,Fixed,20.0,180.0,0.40,12.0,10.0,10.5,True,Central
+CA-02,San Diego Solar,32.72,-117.15,20,America/Los_Angeles,Tracker,35.0,180.0,0.35,20.0,17.0,18.0,True,String
+CA-03,Sacramento Solar,38.58,-121.49,7,America/Los_Angeles,Tracker,40.0,180.0,0.42,15.0,12.5,13.0,True,Central
+OR-01,Portland Solar,45.52,-122.68,15,America/Los_Angeles,Fixed,30.0,180.0,0.45,8.0,6.5,7.0,False,String
+WA-01,Seattle Solar,47.61,-122.33,56,America/Los_Angeles,Fixed,35.0,180.0,0.45,5.0,4.0,4.5,False,String

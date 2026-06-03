@@ -1,0 +1,16 @@
+[project]
+name = "webinar-june-2026-dnv-apis"
+version = "0.1.0"
+description = "Jupyter notebooks for the DNV Webinar 'Bankable yield modelling in your Python workflows' (June 2026) — plant design, multi-year P50/P90, operational monitoring, and multi-site portfolio assessment using the SolarFarmer SDK and Solcast."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "dnv-solarfarmer>=0.3.0",
+    "ipykernel>=7.2.0",
+    "jinja2>=3.0",
+    "matplotlib>=3.10.9",
+    "numpy>=2.0",
+    "pandas>=3.0.2",
+    "pvlib>=0.11",
+    "solcast>=1.3.1",
+]

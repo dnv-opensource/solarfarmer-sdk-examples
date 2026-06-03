@@ -14,6 +14,21 @@ Each subfolder corresponds to a specific event or workshop. More are added over 
 | Folder | Event | Date |
 |--------|-------|------|
 | [`PVPMC2026/`](PVPMC2026/) | PVPMC USA Workshop, Albuquerque NM | May 2026 |
+| [`WebinarJune2026/`](WebinarJune2026/) | DNV Webinar — Bankable yield modelling in your Python workflows | June 2026 |
+
+---
+
+## Webinar June 2026
+
+Four notebooks from the **DNV Webinar: Bankable yield modelling in your Python workflows** (June 3rd 2026).
+Covers single-plant design, GCR optimisation, multi-year resource variability, operational monitoring, and multi-site portfolio assessment — all using the SolarFarmer SDK and Solcast satellite weather.
+
+| Notebook | Title | What it covers |
+|----------|-------|----------------|
+| [`demo_solarfarmer.ipynb`](WebinarJune2026/demo_solarfarmer.ipynb) | SolarFarmer SDK in 90 seconds | Design a 10 MW tracker plant, run a bankable energy calculation, visualise monthly energy & PR, sweep GCR for LCOE optimisation |
+| [`demo_multiyear_resource.ipynb`](WebinarJune2026/demo_multiyear_resource.ipynb) | Multi-year resource & energy variability | Solcast TMY + 19 years of historic data, parallel SolarFarmer runs, P50/P75/P90 exceedance, inter-annual variability |
+| [`demo_operational.ipynb`](WebinarJune2026/demo_operational.ipynb) | From pro forma to operations | Reuse a SolarFarmer 3D model for TMY baseline and satellite-actual simulations; weekly PII/PIE/WA-PIE decomposition; pvlib Kimber soiling from precipitation; cleaning ROI |
+| [`demo_multisite_portfolio.ipynb`](WebinarJune2026/demo_multisite_portfolio.ipynb) | Multi-site portfolio assessment | 5-site US West Coast portfolio from CSV; parallel Solcast TMY fetch; `PVSystem` (Workflow 2); parallel energy calculations; PR / specific yield / monthly profiles |
 
 ---
 
@@ -67,9 +82,11 @@ $env:SF_API_KEY      = "your-key"
 
 ## Setup
 
-Requires **Python 3.11+**.
+Requires **Python 3.11+**. Each event folder contains its own `pyproject.toml` (and, where available, an `environment.yml`) listing all dependencies. Install from whichever folder you want to run.
 
-### Option A — conda (recommended)
+The examples below use `PVPMC2026/`; substitute `WebinarJune2026/` (or any other folder) to install for a different event.
+
+### Option A — conda (recommended, where environment.yml is provided)
 
 ```bash
 cd PVPMC2026
@@ -86,10 +103,13 @@ uv sync              # reads pyproject.toml and uv.lock
 jupyter lab
 ```
 
-### Option C — pip
+### Option C — pip / venv
 
 ```bash
-cd PVPMC2026
+cd PVPMC2026          # or WebinarJune2026, etc.
+python -m venv .venv
+.venv\Scripts\activate          # Windows
+# source .venv/bin/activate     # macOS / Linux
 pip install .        # reads pyproject.toml
 jupyter lab
 ```
@@ -101,18 +121,28 @@ jupyter lab
 ```
 solarfarmer-sdk-examples/
 ├── README.md
-└── PVPMC2026/
-    ├── environment.yml
+├── PVPMC2026/
+│   ├── environment.yml
+│   ├── pyproject.toml
+│   ├── uv.lock
+│   ├── solar_resource_compass.py     # SRC API helper
+│   ├── 01_solcast.ipynb
+│   ├── 02_solar_resource_compass.ipynb
+│   ├── 03_solarfarmer.ipynb
+│   ├── 04_operational_SF3d.ipynb
+│   ├── 05_solcast_solarfarmer_multiyear.ipynb
+│   ├── equipment/                    # PAN / OND files for notebooks 03–05
+│   └── operational_usecase/          # SolarFarmer Workflow 1 API input files
+└── WebinarJune2026/
     ├── pyproject.toml
-    ├── uv.lock
-    ├── solar_resource_compass.py     # SRC API helper
-    ├── 01_solcast.ipynb
-    ├── 02_solar_resource_compass.ipynb
-    ├── 03_solarfarmer.ipynb
-    ├── 04_operational_SF3d.ipynb
-    ├── 05_solcast_solarfarmer_multiyear.ipynb
-    ├── equipment/                    # PAN / OND files for notebooks 03–05
-    └── operational_usecase/          # SolarFarmer Workflow 1 API input files
+    ├── environment.yml
+    ├── sites.csv                     # 5-site portfolio definition
+    ├── demo_solarfarmer.ipynb        # Single-plant design, GCR optimisation
+    ├── demo_multiyear_resource.ipynb # Multi-year variability & P50/P90
+    ├── demo_operational.ipynb        # Operational monitoring & soiling ROI
+    ├── demo_multisite_portfolio.ipynb  # Multi-site portfolio
+    ├── equipment/                    # PAN / OND files (symlinked from PVPMC2026)
+    └── weather/                      # Cached Solcast TMY TSV files
 ```
 
 ---
